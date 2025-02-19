@@ -23,7 +23,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('teams.create');
     }
 
     /**
@@ -31,7 +31,22 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campos = [
+            'name' => 'required|string',
+            'region' => 'required|string'
+        ];
+
+        $mensajes = [
+            'required' => 'El campo :attribute es obligatorio'
+        ];
+
+        $this->validate($request, $campos, $mensajes);
+
+        $datosTeam = $request->only('name', 'region');
+
+        Team::insert($datosTeam);
+
+        return redirect('teams');
     }
 
     /**

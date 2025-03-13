@@ -14,13 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void //OJO - este seeder es el que llena toda la aplicación, ergo todo el relleno que haya que crear debe ir aquí
     {
-        // User::factory(10)->create();
+        EjemploTenedor::factory(1)->create();
 
         /*User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);*/
-
-        EjemploTenedor::factory(5)->create();
     }
 }

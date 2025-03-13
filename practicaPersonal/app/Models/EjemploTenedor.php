@@ -40,7 +40,7 @@ class EjemploTenedor extends Model
         ];
     }
 
-    public function ejemplo () {
-        return $this->hasMany(Ejemplo::class);
+    public function ejemplos () {
+        return $this->hasMany(Ejemplo::class, 'id', 'tenedor_id');
     }
 }

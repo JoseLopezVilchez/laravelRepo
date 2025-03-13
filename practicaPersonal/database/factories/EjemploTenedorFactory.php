@@ -25,7 +25,7 @@ class EjemploTenedorFactory extends Factory
 
     public function configure() { //es posible hacer que por cada elemento creado se creen otros
         return $this->afterCreating(function (EjemploTenedor $tenedor) {
-            Ejemplo::factory(5)->create();
+            Ejemplo::factory(2)->create(['tenedor_id' => $tenedor->id]);
         });
     }
 }

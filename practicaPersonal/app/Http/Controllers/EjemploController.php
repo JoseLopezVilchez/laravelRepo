@@ -35,7 +35,7 @@ class EjemploController extends Controller
             return response()->json(['error' => $validator->messages()], Response::HTTP_BAD_REQUEST);
         }
 
-        $ejemplo = Ejemplo::factory()->create([ //create instancia de modelo
+        $ejemplo = Ejemplo::create([ //create instancia de modelo
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion
         ]);
@@ -53,7 +53,8 @@ class EjemploController extends Controller
     {
         return response()->json([
             'message' => 'Mostrand ejemplo concreto',
-            'data' => Ejemplo::findOrFail($ejemplo)
+            //'data' => Ejemplo::findOrFail($ejemplo)
+            'data' => $ejemplo
         ], Response::HTTP_OK);
     }
 
